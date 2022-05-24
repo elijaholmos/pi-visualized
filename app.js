@@ -2,13 +2,6 @@ import fs from 'node:fs/promises';
 
 const input = (await fs.readFile('pi.txt', 'utf8')).split('');
 
-const counter = {};
-
-for(const d of input) {
-    if(!counter.hasOwnProperty(d)) counter[d] = 0;
-    counter[d]++;
-}
-
 const generateRandomColor = function(str=[]) {
     const digits = Math.floor(Math.random() * 8) + 1;
 
@@ -24,7 +17,7 @@ const generateRandomColor = function(str=[]) {
 
     const decimalToHex = function(d=0) {
         return Number(d).toString(16).padStart(6, '0');
-    }
+    };
 
     return `#${decimalToHex(dec)}`;
 };
